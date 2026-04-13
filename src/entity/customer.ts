@@ -1,10 +1,10 @@
 import type Address from "./address.js";
 
 export default class Customer {
-  _id: string;
-  _name: string = "";
-  _address!: Address;
-  _active: boolean = true;
+  private _id: string;
+  private _name: string = "";
+  private _address!: Address;
+  private _active: boolean = true;
 
   constructor(id: string, name: string) {
     this._id = id;
@@ -19,6 +19,14 @@ export default class Customer {
     if (this._name.length === 0) {
       throw new Error("Name is required");
     }
+  }
+
+  get name(): string {
+    return this._name;
+  }
+
+  isActive(): boolean {
+    return this._active;
   }
 
   changeName(name: string) {
