@@ -197,8 +197,16 @@ const config: Config = {
   // Whether to use watchman for file crawling
   // watchman: true,
   transform: {
-    "^.+.(t|j)sx?$": "@swc/jest",
+    "^.+\\.(t|j)sx?$": [
+      "@swc/jest",
+      {
+        module: {
+          type: "commonjs",
+        },
+      },
+    ],
   },
+  transformIgnorePatterns: ["/node_modules/(?!(uuid)/)"],
 };
 
 export default config;
