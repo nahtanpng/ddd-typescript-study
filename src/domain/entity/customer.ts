@@ -22,6 +22,10 @@ export default class Customer {
     }
   }
 
+  get Address(): Address {
+    return this._address;
+  }
+
   get name(): string {
     return this._name;
   }
